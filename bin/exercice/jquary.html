@@ -38,8 +38,14 @@
 </div>
 
 <!--演習４-->
-名前：<input type="text" id="textBoxName" ></input>
-<button type="button" >送信</button>
+<form id="aaa">
+名前：<input type="text" id="textBoxName"></input>
+<button type="button" id="freeze">送信</button>
+</form>
+
+<!--演習５-->
+メールアドレス：<input type="text" id="mail"></input>
+<button type="button" id="set">送信</button>
 
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="external_script.js"></script>
@@ -65,8 +71,14 @@ $(function(){
       $("#triathlon").hide();
     }
   });
-  $("#textBoxName").prop(disabled=true);
 
+  $("#freeze").on("click",function(){
+    ("#aaa").prop("disabled",true);
+  });
+
+  $("#set").on("click",function(){
+   alert("メールアドレスを入力してください")
+  });
 });
 </script>
 
