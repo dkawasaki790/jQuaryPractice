@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--演習1-->
+<span id="text">ここに文字がセットされます</span><br>
+<button type="button" id="get_btn">名前を表示</button><br>
+
+<!--演習2-->
+<span id="blueOrRedText" style="color:blue"></span><br>
+<button type="button" onclick="change_color();">名前の色を変える</button>
+
+<!--演習3-->
+<ul>
+  <li>
+    趣味は何ですか？
+    <select name="hobby" id="area">
+      <option value="0">--</option>
+      <option value="1">トライアスロン</option>
+      <option value="2">その他</option>
+    </select>
+  </li>
+</ul>
+<div id="triathlon" style="display: none;">
+  <!--トライアスロンの場合-->
+  トライアスロンで好きな種目は？
+  <input type="radio" name="favorite" value="swim">Swim
+  <input type="radio" name="favorite" value="bike">Bike
+  <input type="radio" name="favorite" value="run">Run
+</div>
+<div id="other" style="display: none;">
+  <!--その他の場合 -->
+  それでは何が好き？
+  <input type="text" name="favorite">
+</div>
+
+<!--演習４-->
+名前：<input type="text" id="textBoxName" ></input>
+<button type="button" >送信</button>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="external_script.js"></script>
+<script>
+'use strict';
+$(function(){
+  $("set_btn").on("click",function(){
+    $("#text").text("html内のテキスト表示");
+  });
+
+  $("#get_btn").on("click",function(){
+    $("#text").text("川崎大佑");
+  });
+
+  $("#area").change(function(){
+    let hobby_val =$('option:selected').val();
+    if(hobby_val==1){
+      $("#triathlon").show();
+      $("#other").hide();
+    }
+    else if(hobby_val==2){
+      $("#other").show();
+      $("#triathlon").hide();
+    }
+  });
+  $("#textBoxName").prop(disabled=true);
+
+});
+</script>
+
+</body>
+</html>
